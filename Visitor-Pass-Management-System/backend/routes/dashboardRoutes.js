@@ -1,19 +1,29 @@
 
-
 const express = require("express");
 const router = express.Router();
 
-const { getStats } = require("../controllers/dashboardController");
+const {
+  getStats,
+  getPasses,
+} = require("../controllers/dashboardController");
 
 const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
-// View dashboard statistics
+// Dashboard statistics: admin only.
 router.get(
   "/stats",
   authMiddleware,
   roleMiddleware("admin"),
   getStats
+);
+
+// Search, filter and paginate passes: admin only.
+router.get(
+  "/passes",
+  authMiddleware,
+  roleMiddleware("admin"),
+  getPasses
 );
 
 module.exports = router;
