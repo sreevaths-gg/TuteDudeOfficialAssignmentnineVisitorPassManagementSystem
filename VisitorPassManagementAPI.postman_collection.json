@@ -1,0 +1,705 @@
+{
+  "info": {
+    "_postman_id": "00321f63-c0f5-4a98-8396-c1d1e7865a13",
+    "name": "VisitorPassManagementAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27873411",
+    "_collection_link": "https://go.postman.co/collection/27873411-00321f63-c0f5-4a98-8396-c1d1e7865a13?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Visitors",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_06by}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fullName\": \"Grace Taylor\",\r\n  \"phone\": \"8888888888\",\r\n  \"email\": \"johndoe@gmail.com\",\r\n  \"company\": \"BNM Pvt Ltd\",\r\n  \"role\":\"visitor\",\r\n  \"photo\":\"uploads/visitors/51fc51546c5a55e8cf7913e87181a4c9.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/visitors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "visitors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Visitors",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_06by}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/visitors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "visitors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Appointment",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0evg}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"visitorId\": \"6adcece7d4ef14846b3d00c7\",\r\n  \"visitorName\":\"John Doe\",\r\n  \"hostName\": \"Manager\",\r\n  \"purpose\": \"Interview\",\r\n  \"visitDate\": \"2026-10-25\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/appointments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Appointments",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0evg}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/appointments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "appointments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Generate Pass",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0yr5}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"visitorId\": \"6adb3469aaf221d4efe1613b\",\r\n     \"appointmentId\": \"6adcee9cd4ef14846b3d00c8\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/passes/generate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "passes",
+            "generate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Passes",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/passes/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "passes",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Single Pass Id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/passes/6adeddaea096c393025901f5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "passes",
+            "6adeddaea096c393025901f5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CheckIn",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"visitorId\": \"6adcece7d4ef14846b3d00c7\",\r\n  \"passId\": \"6add642535436e55d0dbc5e4\",\r\n  \"securityOfficer\": \"68fa55555555555555555555\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/checkin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "checkin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Checkout",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/checkout/6adb2722ae2d3243f723e312",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "checkout",
+            "6adb2722ae2d3243f723e312"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CheckAllLogs",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/checklogs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "checklogs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Single Check Log",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/checklogs/6adb26dfae2d3243f723e311",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "checklogs",
+            "6adb26dfae2d3243f723e311"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Dashboard Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/dashboard/stats",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "dashboard",
+            "stats"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export Vsitors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/reports/visitors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "reports",
+            "visitors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export Passes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/reports/passes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "reports",
+            "passes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Users",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Users",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin1@gmail.com\",\r\n  \"password\": \"12345678\",\r\n  \"role\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Verify QR",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n     \"qrCode\": \"data:image/png;base64,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\"\r\n}\r\n  ",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/qr/verify",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "qr",
+            "verify"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get My Visitor Pass",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/passes/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "passes",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get My Visitor",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0vrj}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/visitors/me",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "visitors",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0yr5",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0evg",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0vrj",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_06by",
+      "secret": true
+    }
+  ]
+}
